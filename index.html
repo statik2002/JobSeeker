@@ -8,9 +8,18 @@
     <link rel="stylesheet" href="static/css/style.css">
     <script src="static/js/popper.min.js"></script>
     <script src="static/js/bootstrap.min.js"></script>
+    
     <title>Document</title>
 </head>
 <body>
+
+    <style>
+        #preview {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+
     <!--Telephone and small-->
     <div class="container-fluid d-lg-none">
 
@@ -20,33 +29,141 @@
     <!--Desktop-->
     <div class="container-fluid d-none d-lg-block border bg-primary" style="height: 100vh;">
         <div class="row h-100">
+            <!--Left area-->
             <div class="col overflow-y-auto border m-2">
                 <div class="container p-3">
-                    <form action="">
-                        <div class="d-flex border grow-2">
-                            <div class="h-100">
-                                <img src="media/avatar.webp" alt="" style="width: 120px;">
-                            </div>
-                            <div class="border h-100 w-100">
-                                <div class="d-flex p-2 grow-2">
-                                    <div class=""><input type="text" name="surname" id="surname" placeholder="Фамилия" class="w-100"></div>
-                                    <div class=""><input type="text" name="name" id="name" placeholder="Имя" class="w-100"></div>
+                    <!--Accordion-->
+                    <div class="mt-3">
+                        <div class="accordion" id="accordionExample">
+                            <!--Personal detail-->
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="PersonalDetail">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePersonalDetail" aria-expanded="true" aria-controls="collapseOne">
+                                    Personal detail
+                                    </button>
+                                </h2>
+                                <div id="collapsePersonalDetail" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <div class="d-flex flex-row">
+                                            <div class="p-1 border flex-shrink-0">
+                                                <img src="/media/avatar.webp" class="img-thumbnail" style="max-width: 150px;" alt="">
+                                            </div>
+                                            <div class="d-flex flex-grow-1 flex-column gap-3 p-1 border justify-content-center ">
+                                                <div class="d-flex justify-content-between border">
+                                                    <div class="p-2">
+                                                        <input type="text" class="form-control" id="Name" placeholder="Name">
+                                                    </div>
+                                                    <div class="p-2">
+                                                        <input type="text" class="form-control" id="Surname" placeholder="Surname">
+                                                    </div>
+                                                </div>
+                                                <div class="border p-2">
+                                                    <input type="email" class="form-control" id="Email" placeholder="Email">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex flex-column">
+                                            <div class="d-flex flex-grow-1 border p-1">
+                                                <input type="text" class="form-control" id="Headline" placeholder="Headline">
+                                            </div>
+                                            <div class="d-flex flex-grow-1 border p-1">
+                                                <input type="tel" class="form-control" id="Telephone" placeholder="Telephone">
+                                            </div>
+                                            <div class="d-flex flex-grow-1 border p-1">
+                                                <input type="text" class="form-control" id="Address" placeholder="Address">
+                                            </div>
+                                            <div class="d-flex flex-row justify-content-between gap-2 border p-1">
+                                                <div class="flex-grow-1">
+                                                    <input type="number" class="form-control" id="PostCode" placeholder="PostCode">
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    <input type="text" class="form-control" id="City" placeholder="City">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="p-2">
-                                    <div class="">
-                                        <input type="email" name="email" id="email" placeholder="email" class="w-100">
+                            </div>
+                            <!--Education-->
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="Education">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEducation" aria-expanded="false" aria-controls="collapseTwo">
+                                    Education
+                                    </button>
+                                </h2>
+                                <div id="collapseEducation" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                    <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Employment-->
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="Employment">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEmployment" aria-expanded="false" aria-controls="collapseThree">
+                                    Employment
+                                    </button>
+                                </h2>
+                                <div id="collapseEmployment" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                    <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Skills-->
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="Skills">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSkills" aria-expanded="false" aria-controls="collapseThree">
+                                    Skills
+                                    </button>
+                                </h2>
+                                <div id="collapseSkills" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                    <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Languages-->
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="Languages">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseLanguages" aria-expanded="false" aria-controls="collapseThree">
+                                    Langages
+                                    </button>
+                                </h2>
+                                <div id="collapseLanguages" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                    <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Hobbies-->
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="Hobbies">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseHobbies" aria-expanded="false" aria-controls="collapseThree">
+                                    Hobbies
+                                    </button>
+                                </h2>
+                                <div id="collapseHobbies" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                    <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
+
+            <!--Right area-->
             <div class="col overflow-y-auto border m-2">
-                B
+                <div class="w-100 h-100" id="canvasContainer">
+                    <canvas id="preview"></canvas>
+                </div>
             </div>
         </div>
     </div>
     <!--End Desktop-->
+
+    <script src="static/js/main.js"></script>
 </body>
 </html>
