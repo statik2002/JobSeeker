@@ -1,4 +1,5 @@
 
+
 let previewDoc = {
     canvasWidth: 100,
     canvasHeigth: 100,
@@ -23,6 +24,13 @@ let previewDoc = {
             // Canvas not supported
             alert('Canvas is not supported in your browser.');
         }
+    },
+
+    resize() {
+        let container = document.getElementById("canvasContainer");
+        let canvas = document.getElementById("preview");
+        canvas.setAttribute('width', container.offsetWidth);
+        canvas.setAttribute('height', container.offsetHeight);
     }
 }
 
@@ -31,16 +39,17 @@ function prepare() {
     let canvas = document.getElementById("preview");
     canvas.setAttribute('width', container.offsetWidth);
     canvas.setAttribute('height', container.offsetHeight);
-    let preview = previewDoc;
+    
     preview.canvasWidth = canvas.offsetWidth;
     preview.canvasHeigth = canvas.offsetHeight;
 
     preview.draw(canvas);
 }
 
+let preview = previewDoc;
+
 document.addEventListener("DOMContentLoaded", prepare());
 
 window.addEventListener('resize', function(event){
-    let container = document.getElementById("canvasContainer");
-    console.log(container.offsetWidth);
+    preview.resize;
   });
