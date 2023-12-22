@@ -1,55 +1,48 @@
 
+let persona = {
+    name: "You name",
+    surname: "You surname",
+    email: "You email",
 
-let previewDoc = {
-    canvasWidth: 100,
-    canvasHeigth: 100,
-    marginLeft: 10,
-    marginRight: 10,
-    marginTop: 10,
-    marginBottom: 20,
-    backgroundColor: 'gray',
-    headerColor: 'balck',
+    nameId: "Name",
+    surnameId: "Surname",
+    emailId: "Email",
+    hedlineId: "Headline",
+    telephoneId: "Telephone",
+    addressId: "Address",
+    postCodeId: "PostCode",
+    cityId: "City",
 
-    draw(canvas) {
-        if (canvas.getContext) {
-            const ctx = canvas.getContext('2d');
-    
-            ctx.fillStyle = this.backgroundColor;
-            ctx.fillRect(this.marginLeft, this.marginTop, this.canvasWidth - this.marginRight, this.canvasHeigth - this.marginBottom);
+    outputNameId: "showName",
+    outputSurnameId: "showSurname",
+    outputEmailId: "showEmail",
+    outputHeadlineId: "showHeadline",
+    outputTelephoneId: "showTelephone",
+    outputAddressId: "showAddress",
+    outputPostCodeId: "showPostcode",
+    outputCityId: "showCity",
 
-            ctx.fillStyle = "rgba(0, 0, 200, 0.5)";
-            ctx.fillRect(this.marginLeft, this.marginTop, this.canvasWidth - this.marginRight, this.marginTop+100);
+    setChangeEvent() {
+        let nameSelector = document.getElementById(this.nameId);
+        let surnameSelector = document.getElementById(this.surnameId);
+        let emailSelector = document.getElementById(this.emailId);
+        let headlineSelector = document.getElementById(this.hedlineId);
+        let telephoneSelector = document.getElementById(this.telephoneId);
+        let addressSelector = document.getElementById(this.addressId);
+        let postCodeSelector = document.getElementById(this.postCodeId);
+        let citySelector = document.getElementById(this.cityId);
 
-        } else {
-            // Canvas not supported
-            alert('Canvas is not supported in your browser.');
-        }
-    },
-
-    resize() {
-        let container = document.getElementById("canvasContainer");
-        let canvas = document.getElementById("preview");
-        canvas.setAttribute('width', container.offsetWidth);
-        canvas.setAttribute('height', container.offsetHeight);
+        nameSelector.oninput = () => document.getElementById(this.outputNameId).innerHTML = nameSelector.value;
+        surnameSelector.oninput = () => document.getElementById(this.outputSurnameId).innerHTML = surnameSelector.value;
+        emailSelector.oninput = () => document.getElementById(this.outputEmailId).innerHTML = emailSelector.value;
+        headlineSelector.oninput = () => document.getElementById(this.outputHeadlineId).innerHTML = headlineSelector.value;
+        telephoneSelector.oninput = () => document.getElementById(this.outputTelephoneId).innerHTML = telephoneSelector.value;
+        addressSelector.oninput = () => document.getElementById(this.outputAddressId).innerHTML = addressSelector.value;
+        postCodeSelector.oninput = () => document.getElementById(this.outputPostCodeId).innerHTML = postCodeSelector.value;
+        citySelector.oninput = () => document.getElementById(this.outputCityId).innerHTML = citySelector.value;
     }
 }
 
-function prepare() {
-    let container = document.getElementById("canvasContainer");
-    let canvas = document.getElementById("preview");
-    canvas.setAttribute('width', container.offsetWidth);
-    canvas.setAttribute('height', container.offsetHeight);
-    
-    preview.canvasWidth = canvas.offsetWidth;
-    preview.canvasHeigth = canvas.offsetHeight;
 
-    preview.draw(canvas);
-}
-
-let preview = previewDoc;
-
-document.addEventListener("DOMContentLoaded", prepare());
-
-window.addEventListener('resize', function(event){
-    preview.resize;
-  });
+let personal = persona;
+personal.setChangeEvent();

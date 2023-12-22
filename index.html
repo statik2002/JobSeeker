@@ -155,9 +155,38 @@
             </div>
 
             <!--Right area-->
-            <div class="col overflow-y-auto border m-2">
-                <div class="w-100 h-100" id="canvasContainer">
-                    <canvas id="preview"></canvas>
+            <div class="col overflow-y-auto m-2">
+                <div class="d-flex justify-content-center wrapper p-3">
+                    <page size="A4" class="mt-4">
+                        <div class="h-100">
+                            <div class="d-flex flex-row gap-3 page-header">
+                                <div class="flex-shrink-0">
+                                    <img src="/media/avatar_men.webp" class="" style="max-width: 150px;" alt="">
+                                </div>
+                                <div class="d-flex flex-grow-1 ms-2 flex-column gap-1 justify-content-center">
+                                    <div class="d-flex justify-content-between">
+                                        <div class="d-flex h3 text-light gap-2 ">
+                                            <div id="showName">Феофан</div>
+                                            <div id="showSurname">Папавиашвили</div>
+                                        </div>
+                                    </div>
+                                    <div class="h-4 text-light" id="showHeadline">
+                                        Фуллстэк разработчик
+                                    </div>
+                                    <div class="d-flex text-light gap-2 pt-3" style="font-size: 0.8em;">
+                                        <i class="bi bi-envelope"></i>
+                                        <div id="showEmail">statik2002@mail.ru</div>
+                                        <i class="bi bi-telephone"></i>
+                                        <div id="showTelephone">89148569967</div>
+                                        <i class="bi bi-house"></i>
+                                        <div id="showPostcode">665732</div>
+                                        <div id="showCity">Братск</div>
+                                        <div id="showAddress">ул. Ленина д.6 кв. 143</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </page>
                 </div>
             </div>
         </div>
