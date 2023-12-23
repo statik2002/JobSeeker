@@ -43,6 +43,15 @@ let persona = {
     }
 }
 
+function toPDF() {
+    let element = document.getElementById('wrapper');
+    let options = {
+        margin: 1,
+        html2canvas: {scale: 5},
+    }
+    html2pdf().set(options).from(element).save();
+}
 
 let personal = persona;
 personal.setChangeEvent();
+
