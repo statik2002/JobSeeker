@@ -4,8 +4,8 @@
 
 ## Сторонние библиотеки
 
-1. Bootstrap [установка](https://getbootstrap.com/)
-2. HTMLtoPDF.js [установка](https://ekoopmans.github.io/html2pdf.js/)
+1. Bootstrap 5 - [установка](https://getbootstrap.com/)
+2. HTMLtoPDF.js - [установка](https://ekoopmans.github.io/html2pdf.js/)
 
 ## Установка
 

@@ -52,6 +52,20 @@ function toPDF() {
     html2pdf().set(options).from(element).save();
 }
 
+window.addEventListener('load', function() {
+    document.querySelector('#uploadAvatar').addEventListener('change', function() {
+        if(this.files && this.files[0]) {
+            let avtarImage = document.querySelector('#avatarImage');
+            let avatarResume = document.querySelector('#avatarShow');
+            avtarImage.onload = () => {
+                URL.revokeObjectURL(avtarImage.src);
+            }
+            avtarImage.src = URL.createObjectURL(this.files[0]);
+            avatarResume.src = URL.createObjectURL(this.files[0]);
+        }
+    });
+});
+
 let personal = persona;
 personal.setChangeEvent();
 
