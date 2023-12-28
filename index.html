@@ -30,7 +30,7 @@
     <div class="container-fluid d-none d-lg-block border bg-primary" style="height: 100vh;">
         <div class="row h-100">
             <!--Left area-->
-            <div class="col overflow-y-auto border">
+            <div class="col edit-column pb-3 border">
                 <!--Accordion-->
                 <div class="mt-3">
                     <div class="accordion" id="accordionExample">
@@ -41,7 +41,7 @@
                                 Персональные Данные
                                 </button>
                             </h2>
-                            <div id="collapsePersonalDetail" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                            <div id="collapsePersonalDetail" class="accordion-collapse collapse show" aria-labelledby="headingOne">
                                 <div class="accordion-body">
                                     <div class="d-flex flex-row">
                                         <div class="flex-shrink-0">
@@ -94,6 +94,66 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="d-flex flex-column">
+                                        <div id="placeOfBirthId" class="collapse pt-3">
+                                            <label for="placeOfBirth">Place of birth</label>
+                                            <div class="d-flex gap-2 ">
+                                                <input type="text" class="form-control" id="placeOfBirth">
+                                                <button href="#placeOfBirthId" type="button" role="button" class="btn btn-outline-secondary" data-bs-toggle="collapse"><i class="bi bi-trash3"></i></button>
+                                            </div>
+                                        </div>
+                                        <div id="driverLicenceId" class="collapse pt-3">
+                                            <label for="driverLicence">Driver Licence</label>
+                                            <div class="d-flex gap-2 ">
+                                                <input type="text" class="form-control" id="driverLicence">
+                                                <button href="#driverLicenceId" type="button" role="button" class="btn btn-outline-secondary" data-bs-toggle="collapse"><i class="bi bi-trash3"></i></button>
+                                            </div>
+                                        </div>
+                                        <div id="genderId" class="collapse pt-3">
+                                            <label for="gender">Gender</label>
+                                            <div class="d-flex gap-2 ">
+                                                <input type="text" class="form-control" id="gender">
+                                                <button href="#genderId" type="button" role="button" class="btn btn-outline-secondary" data-bs-toggle="collapse"><i class="bi bi-trash3"></i></button>
+                                            </div>
+                                        </div>
+                                        <div id="nationalityId" class="collapse pt-3">
+                                            <label for="nationality">Nationality</label>
+                                            <div class="d-flex gap-2">
+                                                <input type="text" class="form-control" id="nationality">
+                                                <button href="#nationalityId" type="button" role="button" class="btn btn-outline-secondary" data-bs-toggle="collapse"><i class="bi bi-trash3"></i></button>
+                                            </div>
+                                        </div>
+                                        <div id="civilStatusId" class="collapse pt-3">
+                                            <label for="civilStatus">Civil status</label>
+                                            <div class="d-flex gap-2">
+                                                <input type="text" class="form-control" id="civilStatus">
+                                                <button href="#civilStatusId" type="button" role="button" class="btn btn-outline-secondary" data-bs-toggle="collapse"><i class="bi bi-trash3"></i></button>
+                                            </div>
+                                        </div>
+                                        <div id="websiteId" class="collapse pt-3">
+                                            <label for="website">Website</label>
+                                            <div class="d-flex gap-2">
+                                                <input type="text" class="form-control" id="website">
+                                                <button href="#websiteId" type="button" role="button" class="btn btn-outline-secondary" data-bs-toggle="collapse"><i class="bi bi-trash3"></i></button>
+                                            </div>
+                                        </div>
+                                        <div id="telegramId" class="collapse pt-3">
+                                            <label for="telegram">Telegram</label>
+                                            <div class="d-flex gap-2">
+                                                <input type="text" class="form-control" id="telegram">
+                                                <button href="#telegramId" type="button" role="button" class="btn btn-outline-secondary" data-bs-toggle="collapse"><i class="bi bi-trash3"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex gap-2 flex-wrap pt-3">
+                                        <button href="#placeOfBirthId" type="button" class="btn btn-outline-secondary" data-bs-toggle="collapse">Place of birth <i class="bi bi-plus-circle"></i></button>
+                                        <button href="#driverLicenceId" type="button" class="btn btn-outline-secondary" data-bs-toggle="collapse">Driver Licence <i class="bi bi-plus-square"></i></button>
+                                        <button href="#genderId" type="button" class="btn btn-outline-secondary" data-bs-toggle="collapse">Gender <i class="bi bi-plus-circle-dotted"></i></button>
+                                        <button href="#nationalityId" type="button" class="btn btn-outline-secondary" data-bs-toggle="collapse">Nationality <i class="bi bi-plus-square-dotted"></i></button>
+                                        <button href="#civilStatusId" type="button" class="btn btn-outline-secondary" data-bs-toggle="collapse">Civil status <i class="bi bi-plus-circle-fill"></i></button>
+                                        <button href="#websiteId" type="button" class="btn btn-outline-secondary" data-bs-toggle="collapse">Website <i class="bi bi-plus-square-fill"></i></button>
+                                        <button href="#telegramId" type="button" class="btn btn-outline-secondary" data-bs-toggle="collapse">Telegram <i class="bi bi-node-plus"></i></button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -104,7 +164,7 @@
                                 Education
                                 </button>
                             </h2>
-                            <div id="collapseEducation" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                            <div id="collapseEducation" class="accordion-collapse collapse" aria-labelledby="headingTwo">
                                 <div class="accordion-body">
                                 <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
                                 </div>
@@ -117,7 +177,7 @@
                                 Employment
                                 </button>
                             </h2>
-                            <div id="collapseEmployment" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                            <div id="collapseEmployment" class="accordion-collapse collapse" aria-labelledby="headingThree">
                                 <div class="accordion-body">
                                 <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
                                 </div>
@@ -130,7 +190,7 @@
                                 Skills
                                 </button>
                             </h2>
-                            <div id="collapseSkills" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                            <div id="collapseSkills" class="accordion-collapse collapse" aria-labelledby="headingThree">
                                 <div class="accordion-body">
                                 <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
                                 </div>
@@ -143,7 +203,7 @@
                                 Langages
                                 </button>
                             </h2>
-                            <div id="collapseLanguages" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                            <div id="collapseLanguages" class="accordion-collapse collapse" aria-labelledby="headingThree">
                                 <div class="accordion-body">
                                 <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
                                 </div>
@@ -156,7 +216,7 @@
                                 Hobbies
                                 </button>
                             </h2>
-                            <div id="collapseHobbies" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                            <div id="collapseHobbies" class="accordion-collapse collapse" aria-labelledby="headingThree">
                                 <div class="accordion-body">
                                 <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
                                 </div>
@@ -166,8 +226,8 @@
                 </div>
             </div>
             <!--Right area-->
-            <div class="col overflow-y-auto m-0">
-                <div class="d-flex justify-content-center wrapper">
+            <div class="col m-0">
+                <div class="d-flex justify-content-center">
                     <page size="A4" class="mt-4" >
                         <div class="h-100" id="wrapper">
                             <div class="d-flex flex-row gap-3 page-header">
@@ -193,6 +253,21 @@
                                         <div id="showPostcode">665732</div>
                                         <div id="showCity">Братск</div>
                                         <div id="showAddress">ул. Ленина д.6 кв. 143</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row pt-3 border">
+                                <div class="col-8 border ">
+                                    Personal details
+                                </div>
+                                <div class="col-4 border ">
+                                    <div class="row" style="visibility: hidden;">
+                                        Place of Birth
+                                        <div id="showPalceOfBirth"></div>
+                                    </div>
+                                    <div class="row" style="visibility: hidden;">
+                                        Driver licence
+                                        <div id="showDriverLicence"></div>
                                     </div>
                                 </div>
                             </div>

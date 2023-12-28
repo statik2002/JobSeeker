@@ -126,3 +126,8 @@ page[size="A4"] {
   color: white;
   padding-top: 6px;
 }
+
+.edit-column {
+  height: 100vh;
+  overflow-y: scroll;
+}
