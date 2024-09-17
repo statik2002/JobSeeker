@@ -35,6 +35,10 @@
                                                   <label for="Surname">Фамилия</label>
                                                   <input v-model="LastName" type="text" class="form-control" id="Surname" placeholder="" autocomplete="given-name">
                                               </div>
+                                              <div class="ps-2">
+                                                  <label for="Surname">Отчество</label>
+                                                  <input v-model="MiddleName" type="text" class="form-control" id="MiddleName" placeholder="" autocomplete="middle-name">
+                                              </div>
                                           </div>
                                           <div class="ps-2">
                                               <label for="Email">Email</label>
@@ -148,7 +152,7 @@
                                           <label for="telegram">Telegram</label>
                                           <div class="d-flex gap-2">
                                               <input v-model="TgLink" type="text" class="form-control" id="telegram">
-                                              <button href="#telegramId" type="button" role="button" class="btn btn-outline-secondary" data-bs-toggle="collapse"><i class="bi bi-trash3"></i></button>
+                                              <button href="#telegramId" type="button" role="button" class="btn btn-outline-secondary" data-bs-toggle="collapse" @click="deleteTgLink"><i class="bi bi-trash3"></i></button>
                                           </div>
                                       </div>
                                   </div>
@@ -199,39 +203,41 @@
                   <div class="page mt-4" >
                       <div class="d-flex flex-column h-100" id="wrapper">
                           <div class="d-flex flex-row gap-3 page-header">
-                              <div class="flex-shrink-0">
-                                  <img v-bind:src=PhotoSrc id="avatarShow" class="" style="max-width: 150px;" alt="photo">
-                              </div>
-                              <div class="d-flex flex-grow-1 ms-2 flex-column gap-1 justify-content-center">
-                                  <div class="d-flex justify-content-between">
-                                      <div class="d-flex h3 text-light gap-2 ">
-                                          <div id="showName">{{ LastName }}</div>
-                                          <div id="showSurname">{{FirstName}}</div>
-                                          <div id="showName">{{MiddleName}}</div>
-                                      </div>
-                                  </div>
-                                  <div class="h-4 text-light d-flex flex-row" id="showHeadline">
-                                    <div v-if="BirthDate">
-                                      Дата рождения: {{ formatDate }}
+                            <div class="flex-shrink-0">
+                                <img v-bind:src=PhotoSrc id="avatarShow" class="" style="max-width: 150px;" alt="photo">
+                            </div>
+                            <div class="d-flex flex-grow-1 ms-2 flex-column gap-1 justify-content-center">
+                                <div class="d-flex justify-content-between">
+                                    <div class="d-flex h3 text-light gap-2 ">
+                                        <div id="showName">{{ LastName }}</div>
+                                        <div id="showSurname">{{FirstName}}</div>
+                                        <div id="showName">{{MiddleName}}</div>
                                     </div>
-                                    <div class="ps-5" v-if="Gender">
-                                      Пол: {{ Gender }}
-                                    </div>
+                                </div>
+                                <div class="h-4 text-light d-flex flex-row" id="showHeadline">
+                                  <div v-if="BirthDate">
+                                    Дата рождения: {{ formatDate }}
                                   </div>
-                                  <div class="h-4 text-light" id="showHeadline">
-                                      {{HeadLine}}
+                                  <div class="ps-5" v-if="Gender">
+                                    Пол: {{ Gender }}
                                   </div>
-                                  <div class="d-flex text-light gap-2 pt-3" style="font-size: 0.8em;">
-                                      <i class="bi bi-envelope"></i>
-                                      <div id="showEmail">{{Email}}</div>
-                                      <i class="bi bi-telephone"></i>
-                                      <div id="showTelephone">{{Phone}}</div>
-                                      <i class="bi bi-house"></i>
-                                      <div id="showPostcode">{{PostCode}}</div>
-                                      <div id="showCity">{{City}}</div>
-                                      <div id="showAddress">{{Address}}</div>
+                                </div>
+                                <div class="h-4 text-light" id="showHeadline">
+                                    {{HeadLine}}
+                                </div>                        
+                                <div class="d-flex flex-column text-light gap-1 pt-3">
+                                  <div class="d-flex gap-2">
+                                      <i class="bi bi-envelope">&nbsp;{{Email}}</i>
+                                      <i class="bi bi-telephone ps-2">&nbsp;{{Phone}}</i>
+                                      <i class="bi bi-telegram ps-2" v-if="TgLink">&nbsp;{{ TgLink }}</i>
                                   </div>
-                              </div>
+                                  <div class="d-flex gap-2">
+                                    <i class="bi bi-house">{{PostCode}}</i>
+                                    <div id="showCity">{{City}}</div>
+                                    <div id="showAddress">{{Address}}</div>
+                                  </div>
+                                </div>
+                            </div>
                           </div>
                           <div class="d-flex flex-column pt-3 border">
                               <div class="border">
@@ -335,6 +341,9 @@ import image from "@/assets/images/avatar.webp";
       },
       deleteDriverLicence() {
         this.DriverLicence = []
+      },
+      deleteTgLink() {
+        this.TgLink = ''
       },
       photoLoad(event) {
         const file = event.target.files[0]
