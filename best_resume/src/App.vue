@@ -41,8 +41,8 @@
                                               <input type="email" class="form-control" id="Email" placeholder="" autocomplete="email">
                                           </div>
                                           <div class="ps-2">
-                                              <label for="BirthDate">Дата рождения</label>
-                                              <VueDatePicker v-model="BirthDate" id="BirthDate" locale="ru" cancelText="отмена" selectText="Ок" :enable-time-picker="false" :format="formatDate"></VueDatePicker>
+                                              Дата рождения:
+                                              <VueDatePicker v-model="BirthDate" name="date-picker" locale="ru" cancelText="отмена" selectText="Ок" :enable-time-picker="false" :format="formatDate"></VueDatePicker>
                                           </div>
                                       </div>
                                   </div>
@@ -79,7 +79,7 @@
                                           </div>
                                       </div>
                                       <div id="driverLicenceId" class="collapse pt-3">
-                                          <label for="driverLicence">Водительские права</label>
+                                          Водительские права:
                                           <div class="d-flex flex-row gap-2 ">
                                             <div class="form-check">
                                                 <div>
@@ -109,7 +109,7 @@
                                           </div>
                                       </div>
                                       <div id="genderId" class="collapse pt-3">
-                                          <label for="gender">Пол</label>
+                                          Пол:
                                           <div class="d-flex flex-row gap-2">
                                               <div>
                                                 <Gender-component v-model="Gender"></Gender-component>
@@ -120,15 +120,15 @@
                                           </div>
                                       </div>
                                       <div id="nationalityId" class="collapse pt-3">
-                                          <label for="nationality">Национальность</label>
+                                          Национальность:
                                           <div class="d-flex gap-2">
                                               <input v-model="Nationality" type="text" class="form-control" id="nationality">
                                               <button href="#nationalityId" type="button" role="button" class="btn btn-outline-secondary" data-bs-toggle="collapse"><i class="bi bi-trash3"></i></button>
                                           </div>
                                       </div>
                                       <div id="civilStatusId" class="collapse pt-3">
-                                          <label for="civilStatus">Семейное положение</label>
-                                          <div class="d-flex flex-row gap-2">
+                                          <div class="d-flex flex-row gap-2" id="civilStatus">
+                                            Семейное положение:
                                             <div>
                                               <CivilStatus-component v-model="CivilStatus"></CivilStatus-component>
                                             </div>
