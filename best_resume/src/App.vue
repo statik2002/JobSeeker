@@ -18,21 +18,21 @@
                                   <div class="d-flex flex-row">
                                       <div class="flex-shrink-0">
                                           <div class="d-flex flex-column">
-                                              <div class="">Photo</div>
+                                              <div class="">Фотография</div>
                                               <label class="btn btn-default m-0 p-0">
-                                                  <img src="" class="avatar-edit" id="avatarImage" style="max-width: 120px;" alt="">
-                                                  <input type="file" id="uploadAvatar" hidden>
+                                                  <img v-bind:src=PhotoSrc class="avatar-edit" id="avatarImage" style="max-width: 120px;" alt="foto">
+                                                  <input type="file" id="uploadAvatar" hidden @change="photoLoad">
                                               </label>  
                                           </div>
                                       </div>
                                       <div class="d-flex flex-grow-1 flex-column justify-content-between">
                                           <div class="d-flex justify-content-between">
                                               <div class="ps-2">
-                                                  <label for="Name">Name</label>
+                                                  <label for="Name">Имя</label>
                                                   <input v-model="FirstName" type="text" class="form-control" id="Name" name="Name" placeholder="" autocomplete="name">
                                               </div>
                                               <div class="ps-2">
-                                                  <label for="Surname">Surname</label>
+                                                  <label for="Surname">Фамилия</label>
                                                   <input v-model="LastName" type="text" class="form-control" id="Surname" placeholder="" autocomplete="given-name">
                                               </div>
                                           </div>
@@ -48,38 +48,38 @@
                                   </div>
                                   <div class="d-flex flex-column pt-2">
                                       <div class="d-flex flex-grow-1 flex-column pb-2">
-                                          <label for="Headline">Headline</label>
+                                          <label for="Headline">Заголовок</label>
                                           <input v-model="HeadLine" type="text" class="form-control" id="Headline" placeholder="">
                                       </div>
                                       <div class="d-flex flex-grow-1 flex-column pb-2">
-                                          <label for="Telephone">Telephone</label>
+                                          <label for="Telephone">Телефон</label>
                                           <input v-model="Phone" type="tel" class="form-control" id="Telephone" placeholder="">
                                       </div>
                                       <div class="d-flex flex-grow-1 flex-column pb-2">
-                                          <label for="Address">Address</label>
+                                          <label for="Address">Адрес</label>
                                           <input v-model="Address" type="text" class="form-control" id="Address" placeholder="" autocomplete="address-line1">
                                       </div>
                                       <div class="d-flex flex-row justify-content-between gap-2">
                                           <div class="flex-grow-1">
-                                              <label for="PostCode">PostCode</label>
+                                              <label for="PostCode">Почтовый индекс</label>
                                               <input v-model="PostCode" type="number" class="form-control" id="PostCode" placeholder="">
                                           </div>
                                           <div class="flex-grow-1">
-                                              <label for="City">City</label>
+                                              <label for="City">Город</label>
                                               <input v-model="City" type="text" class="form-control" id="City" placeholder="">
                                           </div>
                                       </div>
                                   </div>
                                   <div class="d-flex flex-column">
                                       <div id="placeOfBirthId" class="collapse pt-3">
-                                          <label for="placeOfBirth">Place of birth</label>
+                                          <label for="placeOfBirth">Место рождения</label>
                                           <div class="d-flex gap-2 ">
                                               <input v-model="BirthPlace" type="text" class="form-control" id="placeOfBirth">
                                               <button href="#placeOfBirthId" type="button" role="button" class="btn btn-outline-secondary" data-bs-toggle="collapse"><i class="bi bi-trash3"></i></button>
                                           </div>
                                       </div>
                                       <div id="driverLicenceId" class="collapse pt-3">
-                                          <label for="driverLicence">Driver Licence</label>
+                                          <label for="driverLicence">Водительские права</label>
                                           <div class="d-flex gap-2 ">
                                               <input type="text" class="form-control" id="driverLicence">
                                               <button href="#driverLicenceId" type="button" role="button" class="btn btn-outline-secondary" data-bs-toggle="collapse"><i class="bi bi-trash3"></i></button>
@@ -92,26 +92,30 @@
                                                 <Gender-component v-model="Gender"></Gender-component>
                                               </div>
                                               <div class="ms-auto">
-                                                <button href="#genderId" type="button" role="button" class="btn btn-outline-secondary" data-bs-toggle="collapse"><i class="bi bi-trash3"></i></button>
+                                                <button href="#genderId" type="button" role="button" class="btn btn-outline-secondary" data-bs-toggle="collapse" @click="deleteGender"><i class="bi bi-trash3"></i></button>
                                               </div>
                                           </div>
                                       </div>
                                       <div id="nationalityId" class="collapse pt-3">
-                                          <label for="nationality">Nationality</label>
+                                          <label for="nationality">Национальность</label>
                                           <div class="d-flex gap-2">
                                               <input v-model="Nationality" type="text" class="form-control" id="nationality">
                                               <button href="#nationalityId" type="button" role="button" class="btn btn-outline-secondary" data-bs-toggle="collapse"><i class="bi bi-trash3"></i></button>
                                           </div>
                                       </div>
                                       <div id="civilStatusId" class="collapse pt-3">
-                                          <label for="civilStatus">Civil status</label>
-                                          <div class="d-flex gap-2">
-                                              <input type="text" class="form-control" id="civilStatus">
-                                              <button href="#civilStatusId" type="button" role="button" class="btn btn-outline-secondary" data-bs-toggle="collapse"><i class="bi bi-trash3"></i></button>
+                                          <label for="civilStatus">Семейное положение</label>
+                                          <div class="d-flex flex-row gap-2">
+                                            <div>
+                                              <CivilStatus-component v-model="CivilStatus"></CivilStatus-component>
+                                            </div>
+                                            <div class="ms-auto">
+                                              <button href="#civilStatusId" type="button" role="button" class="btn btn-outline-secondary" data-bs-toggle="collapse" @click="deleteCivilStatus"><i class="bi bi-trash3"></i></button>
+                                            </div>
                                           </div>
                                       </div>
                                       <div id="websiteId" class="collapse pt-3">
-                                          <label for="website">Website</label>
+                                          <label for="website">Сайт</label>
                                           <div class="d-flex gap-2">
                                               <input v-model="Website" type="text" class="form-control" id="website">
                                               <button href="#websiteId" type="button" role="button" class="btn btn-outline-secondary" data-bs-toggle="collapse"><i class="bi bi-trash3"></i></button>
@@ -126,12 +130,12 @@
                                       </div>
                                   </div>
                                   <div class="d-flex gap-2 flex-wrap pt-3">
-                                      <button href="#placeOfBirthId" type="button" class="btn btn-outline-secondary" data-bs-toggle="collapse">Place of birth <i class="bi bi-plus-circle"></i></button>
-                                      <button href="#driverLicenceId" type="button" class="btn btn-outline-secondary" data-bs-toggle="collapse">Driver Licence <i class="bi bi-plus-square"></i></button>
-                                      <button href="#genderId" type="button" class="btn btn-outline-secondary" data-bs-toggle="collapse">Gender <i class="bi bi-plus-circle-dotted"></i></button>
-                                      <button href="#nationalityId" type="button" class="btn btn-outline-secondary" data-bs-toggle="collapse">Nationality <i class="bi bi-plus-square-dotted"></i></button>
-                                      <button href="#civilStatusId" type="button" class="btn btn-outline-secondary" data-bs-toggle="collapse">Civil status <i class="bi bi-plus-circle-fill"></i></button>
-                                      <button href="#websiteId" type="button" class="btn btn-outline-secondary" data-bs-toggle="collapse">Website <i class="bi bi-plus-square-fill"></i></button>
+                                      <button href="#placeOfBirthId" type="button" class="btn btn-outline-secondary" data-bs-toggle="collapse">Место раждения <i class="bi bi-plus-circle"></i></button>
+                                      <button href="#driverLicenceId" type="button" class="btn btn-outline-secondary" data-bs-toggle="collapse">Водительские права <i class="bi bi-plus-square"></i></button>
+                                      <button href="#genderId" type="button" class="btn btn-outline-secondary" data-bs-toggle="collapse">Пол <i class="bi bi-plus-circle-dotted"></i></button>
+                                      <button href="#nationalityId" type="button" class="btn btn-outline-secondary" data-bs-toggle="collapse">Национальность <i class="bi bi-plus-square-dotted"></i></button>
+                                      <button href="#civilStatusId" type="button" class="btn btn-outline-secondary" data-bs-toggle="collapse">Семейное роложение <i class="bi bi-plus-circle-fill"></i></button>
+                                      <button href="#websiteId" type="button" class="btn btn-outline-secondary" data-bs-toggle="collapse">Сайт <i class="bi bi-plus-square-fill"></i></button>
                                       <button href="#telegramId" type="button" class="btn btn-outline-secondary" data-bs-toggle="collapse">Telegram <i class="bi bi-node-plus"></i></button>
                                   </div>
                               </div>
@@ -141,7 +145,7 @@
                       <div class="accordion-item">
                           <h2 class="accordion-header" id="Education">
                               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEducation" aria-expanded="false" aria-controls="collapseEducation">
-                              Education
+                              Образование
                               </button>
                           </h2>
                           <div id="collapseEducation" class="accordion-collapse collapse">
@@ -154,7 +158,7 @@
                       <div class="accordion-item">
                           <h2 class="accordion-header" id="Employment">
                               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEmployment" aria-expanded="false" aria-controls="collapseEmployment">
-                              Employment
+                              Места работы
                               </button>
                           </h2>
                           <div id="collapseEmployment" class="accordion-collapse collapse">
@@ -169,11 +173,11 @@
           <!--Right area-->
           <div class="col m-0">
               <div class="d-flex justify-content-center">
-                  <page size="A4" class="mt-4" >
+                  <div class="page mt-4" >
                       <div class="h-100" id="wrapper">
                           <div class="d-flex flex-row gap-3 page-header">
                               <div class="flex-shrink-0">
-                                  <img src="" id="avatarShow" class="" style="max-width: 150px;" alt="">
+                                  <img v-bind:src=PhotoSrc id="avatarShow" class="" style="max-width: 150px;" alt="photo">
                               </div>
                               <div class="d-flex flex-grow-1 ms-2 flex-column gap-1 justify-content-center">
                                   <div class="d-flex justify-content-between">
@@ -181,11 +185,15 @@
                                           <div id="showName">{{ LastName }}</div>
                                           <div id="showSurname">{{FirstName}}</div>
                                           <div id="showName">{{MiddleName}}</div>
-                                          <div id="showName">Пол: {{Gender}}</div>
                                       </div>
                                   </div>
-                                  <div class="h-4 text-light" id="showHeadline">
-                                    Дата рождения: {{ formatDate }}
+                                  <div class="h-4 text-light d-flex flex-row" id="showHeadline">
+                                    <div v-if="BirthDate">
+                                      Дата рождения: {{ formatDate }}
+                                    </div>
+                                    <div class="ps-5" v-if="Gender">
+                                      Пол: {{ Gender }}
+                                    </div>
                                   </div>
                                   <div class="h-4 text-light" id="showHeadline">
                                       {{HeadLine}}
@@ -202,14 +210,13 @@
                                   </div>
                               </div>
                           </div>
-                          <div class="row pt-3 border">
+                          <div class="d-flex flex-column pt-3 border">
                               <div class="col-8 border ">
                                   Personal details
                               </div>
                               <div class="col-4 border ">
                                   <div class="row" style="visibility: hidden;">
                                       {{BirthPlace}}
-                                      <div id="showPalceOfBirth"></div>
                                   </div>
                                   <div class="row" style="visibility: hidden;">
                                       Driver licence
@@ -218,7 +225,7 @@
                               </div>
                           </div>
                       </div>
-                  </page>
+                    </div>
               </div>
           </div>
           <!--
@@ -251,13 +258,15 @@
 
 <script>
 import Gender from './components/Gender.vue';
+import image from "@/assets/images/avatar.webp";
 
   export default {
     data() {
       return {
-        FirstName: 'Unknown',
-        LastName: 'Unknown',
-        MiddleName: 'Unknown',
+        PhotoSrc: image,
+        FirstName: 'Иван',
+        LastName: 'Иванов',
+        MiddleName: 'Иванович',
         Email: 'example@mail.com',
         HeadLine: 'Мойщик ватных палочек',
         Phone: '+X XXX XXX XX XX',
@@ -269,6 +278,7 @@ import Gender from './components/Gender.vue';
         Website: '',
         TgLink: '',
         Gender: '',
+        CivilStatus: '',
         BirthDate: null,
       }
     },
@@ -280,6 +290,18 @@ import Gender from './components/Gender.vue';
         const year = date.getFullYear();
         return `${day}.${month}.${year}`
       },
+    },
+    methods: {
+      deleteGender() {
+        this.Gender = ''
+      },
+      deleteCivilStatus() {
+        this.CivilStatus = ''
+      },
+      photoLoad(event) {
+        const file = event.target.files[0]
+        this.PhotoSrc = URL.createObjectURL(file)
+      }
     }
   }
 </script>

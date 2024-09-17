@@ -7,7 +7,7 @@ body {
     height: 100%;
   }
   
-  page[size="A4"] {
+  .page {
     background: white;
     width: 21cm;
     height: 29.7cm;
