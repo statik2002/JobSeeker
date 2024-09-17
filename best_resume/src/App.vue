@@ -80,9 +80,32 @@
                                       </div>
                                       <div id="driverLicenceId" class="collapse pt-3">
                                           <label for="driverLicence">Водительские права</label>
-                                          <div class="d-flex gap-2 ">
-                                              <input type="text" class="form-control" id="driverLicence">
-                                              <button href="#driverLicenceId" type="button" role="button" class="btn btn-outline-secondary" data-bs-toggle="collapse"><i class="bi bi-trash3"></i></button>
+                                          <div class="d-flex flex-row gap-2 ">
+                                            <div class="form-check">
+                                                <div>
+                                                  <input class="form-check-input" type="checkbox" value="A" v-model="DriverLicence" id="categoryA">
+                                                  <label class="form-check-label" for="categoryA">A</label>
+                                                </div>
+                                                <div>
+                                                  <input class="form-check-input" type="checkbox" value="B" v-model="DriverLicence" id="categoryB">
+                                                  <label class="form-check-label" for="categoryB">B</label>
+                                                </div>
+                                                <div>
+                                                  <input class="form-check-input" type="checkbox" value="C" v-model="DriverLicence" id="categoryC">
+                                                  <label class="form-check-label" for="categoryC">C</label>
+                                                </div>
+                                                <div>
+                                                  <input class="form-check-input" type="checkbox" value="D" v-model="DriverLicence" id="categoryD">
+                                                  <label class="form-check-label" for="categoryD">D</label>
+                                                </div>
+                                                <div>
+                                                  <input class="form-check-input" type="checkbox" value="E" v-model="DriverLicence" id="categoryE">
+                                                  <label class="form-check-label" for="categoryE">E</label>
+                                                </div>
+                                            </div>
+                                            <div class="ms-auto">
+                                              <button href="#driverLicenceId" type="button" role="button" class="btn btn-outline-secondary" data-bs-toggle="collapse" @click="deleteDriverLicence"><i class="bi bi-trash3"></i></button>
+                                            </div>  
                                           </div>
                                       </div>
                                       <div id="genderId" class="collapse pt-3">
@@ -218,11 +241,14 @@
                                   <div class="" v-if="BirthPlace">
                                       Место рождения: {{BirthPlace}}
                                   </div>
-                                  <div class="" v-if="DriverLicence">
-                                      Driver licence
-                                  </div>
                                   <div class="" v-if="Nationality">
                                       Национальность: {{Nationality}}
+                                  </div>
+                                  <div class="d-flex flex-row" v-if="DriverLicence">
+                                    Водительские категории: &nbsp;
+                                    <div class="" v-for="licence in DriverLicence.sort()">
+                                      {{licence}}
+                                    </div>
                                   </div>
                               </div>
                           </div>
@@ -281,7 +307,7 @@ import image from "@/assets/images/avatar.webp";
         TgLink: '',
         Gender: '',
         CivilStatus: '',
-        DriverLicence: null,
+        DriverLicence: [],
         BirthDate: null,
       }
     },
@@ -293,6 +319,9 @@ import image from "@/assets/images/avatar.webp";
         const year = date.getFullYear();
         return `${day}.${month}.${year}`
       },
+      sortDriverLicense() {
+        return this.DriverLicence.sort()
+      }
     },
     methods: {
       deleteGender() {
@@ -303,6 +332,9 @@ import image from "@/assets/images/avatar.webp";
       },
       deleteBirthPlace() {
         this.BirthPlace = null
+      },
+      deleteDriverLicence() {
+        this.DriverLicence = []
       },
       photoLoad(event) {
         const file = event.target.files[0]
