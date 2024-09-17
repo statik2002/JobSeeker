@@ -75,7 +75,7 @@
                                           <label for="placeOfBirth">Место рождения</label>
                                           <div class="d-flex gap-2 ">
                                               <input v-model="BirthPlace" type="text" class="form-control" id="placeOfBirth">
-                                              <button href="#placeOfBirthId" type="button" role="button" class="btn btn-outline-secondary" data-bs-toggle="collapse"><i class="bi bi-trash3"></i></button>
+                                              <button href="#placeOfBirthId" type="button" role="button" class="btn btn-outline-secondary" data-bs-toggle="collapse" @click="deleteBirthPlace"><i class="bi bi-trash3"></i></button>
                                           </div>
                                       </div>
                                       <div id="driverLicenceId" class="collapse pt-3">
@@ -174,7 +174,7 @@
           <div class="col m-0">
               <div class="d-flex justify-content-center">
                   <div class="page mt-4" >
-                      <div class="h-100" id="wrapper">
+                      <div class="d-flex flex-column h-100" id="wrapper">
                           <div class="d-flex flex-row gap-3 page-header">
                               <div class="flex-shrink-0">
                                   <img v-bind:src=PhotoSrc id="avatarShow" class="" style="max-width: 150px;" alt="photo">
@@ -211,16 +211,18 @@
                               </div>
                           </div>
                           <div class="d-flex flex-column pt-3 border">
-                              <div class="col-8 border ">
-                                  Personal details
+                              <div class="border">
+                                  Персональные данные
                               </div>
-                              <div class="col-4 border ">
-                                  <div class="row" style="visibility: hidden;">
-                                      {{BirthPlace}}
+                              <div class="border">
+                                  <div class="" v-if="BirthPlace">
+                                      Место рождения: {{BirthPlace}}
                                   </div>
-                                  <div class="row" style="visibility: hidden;">
+                                  <div class="" v-if="DriverLicence">
                                       Driver licence
-                                      <div id="showDriverLicence"></div>
+                                  </div>
+                                  <div class="" v-if="Nationality">
+                                      Национальность: {{Nationality}}
                                   </div>
                               </div>
                           </div>
@@ -279,6 +281,7 @@ import image from "@/assets/images/avatar.webp";
         TgLink: '',
         Gender: '',
         CivilStatus: '',
+        DriverLicence: null,
         BirthDate: null,
       }
     },
@@ -297,6 +300,9 @@ import image from "@/assets/images/avatar.webp";
       },
       deleteCivilStatus() {
         this.CivilStatus = ''
+      },
+      deleteBirthPlace() {
+        this.BirthPlace = null
       },
       photoLoad(event) {
         const file = event.target.files[0]
