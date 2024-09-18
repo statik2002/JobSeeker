@@ -12,7 +12,8 @@
     "@vuepic/vue-datepicker": "^9.0.3",
     "bootstrap": "^5.3.3",
     "bootstrap-icons": "^1.11.3",
-    "vue": "^3.4.29"
+    "vue": "^3.4.29",
+    "vue-float-action-button": "^0.7.9"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.5",

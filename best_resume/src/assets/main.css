@@ -16,13 +16,14 @@ body {
     padding: 0 0 0 0;
     margin-bottom: 0;
     box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
-    zoom: 70%;
+    zoom: 65%;
   }
   
   @media print {
     body, page[size="A4"] {
       margin: 0;
       box-shadow: 0;
+      zoom: 100%;
     }
   }
   

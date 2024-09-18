@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid d-none d-lg-block border bg-primary" style="height: 100vh;">
+  <div class="container-fluid d-none d-lg-block border" style="height: 100vh;">
       <div class="row h-100">
           <!--Left area-->
           <div class="col edit-column pb-3 border">
@@ -190,7 +190,7 @@
                           </h2>
                           <div id="collapseEmployment" class="accordion-collapse collapse">
                               <div class="accordion-body">
-                              <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                               <Work-component v-model="Work"></Work-component>
                               </div>
                           </div>
                       </div>
@@ -199,8 +199,8 @@
           </div>
           <!--Right area-->
           <div class="col m-0">
-              <div class="d-flex justify-content-center">
-                  <div class="page mt-4" >
+              <div class="d-flex justify-content-center mt-3">
+                  <div class="page" id="print-me">
                       <div class="d-flex flex-column h-100" id="wrapper">
                           <div class="d-flex flex-row gap-3 page-header">
                             <div class="flex-shrink-0">
@@ -240,52 +240,106 @@
                             </div>
                           </div>
                           <div class="d-flex flex-column pt-3 border">
-                              <div class="border">
-                                  Персональные данные
+                            <div class="border">
+                                Персональные данные
+                            </div>
+                            <div class="border">
+                              <div class="" v-if="BirthPlace">
+                                  Место рождения: {{BirthPlace}}
                               </div>
-                              <div class="border">
-                                  <div class="" v-if="BirthPlace">
-                                      Место рождения: {{BirthPlace}}
-                                  </div>
-                                  <div class="" v-if="Nationality">
-                                      Национальность: {{Nationality}}
-                                  </div>
-                                  <div class="d-flex flex-row" v-if="DriverLicence">
-                                    Водительские категории: &nbsp;
-                                    <div class="" v-for="licence in DriverLicence.sort()">
-                                      {{licence}}
-                                    </div>
-                                  </div>
+                              <div class="" v-if="Nationality">
+                                  Национальность: {{Nationality}}
                               </div>
+                              <div class="d-flex flex-row" v-if="DriverLicence">
+                                Водительские категории: &nbsp;
+                                <div class="" v-for="licence in DriverLicence.sort()">
+                                  {{licence}}
+                                </div>
+                              </div>
+                            </div>
+                            <div class="d-flex" v-if="Education.length > 0">
+                              <div v-for="edu in Education" class="d-flex flex-row gap-2">
+                                <div class="border">
+                                  <div>
+                                    Образовательное учреждение: 
+                                  </div>
+                                  <div>
+                                    {{ edu.organization }}
+                                  </div>
+                                </div>
+                                <div>
+                                  <div>
+                                    Факультет: 
+                                  </div>
+                                  <div>
+                                    {{ edu.facility }}
+                                  </div>
+                                </div>
+                                <div>
+                                  <div>
+                                    годы обучения: 
+                                  </div>
+                                  <div>
+                                    {{ edu.start }} - {{ edu.end }}
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="d-flex" v-if="Work.length > 0">
+                              <div v-for="wk in Work" class="d-flex flex-row gap-2">
+                                <div class="border">
+                                  <div>
+                                    Место работы: 
+                                  </div>
+                                  <div>
+                                    {{ wk.organization }}
+                                  </div>
+                                </div>
+                                <div>
+                                  <div>
+                                    Должность: 
+                                  </div>
+                                  <div>
+                                    {{ wk.position }}
+                                  </div>
+                                </div>
+                                <div>
+                                  <div>
+                                    годы работы: 
+                                  </div>
+                                  <div>
+                                    {{ wk.start }} - {{ wk.end }}
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
                           </div>
                       </div>
                     </div>
               </div>
+              <div class="fab-container">
+                      <div class="sub-button shadow">
+                        <button type="button" class="btn btn-primary" @click="printResume" style="border-radius: 50%;">
+                          <span class="material-icons">print</span>
+                        </button>
+                      </div>
+                      <div class="sub-button shadow">
+                        <a href="#" target="_blank">
+                          <span class="material-icons">mail_outline</span>
+                        </a>
+                      </div>
+                      <div class="sub-button shadow">
+                        <a href="#" target="_blank">
+                          <span class="material-icons">language</span>
+                        </a>
+                      </div>
+                      <div class="sub-button shadow">
+                        <a href="#" target="_blank">
+                          <span class="material-icons">help_outline</span>
+                        </a>
+                      </div>
+                    </div>
           </div>
-          <!--
-          <div class="fab-container">
-            <div class="sub-button shadow">
-              <button type="button" class="btn btn-primary" onclick="toPDF()" style="border-radius: 50%;">
-                <span class="material-icons">print</span>
-              </button>
-            </div>
-            <div class="sub-button shadow">
-              <a href="#" target="_blank">
-                <span class="material-icons">mail_outline</span>
-              </a>
-            </div>
-            <div class="sub-button shadow">
-              <a href="#" target="_blank">
-                <span class="material-icons">language</span>
-              </a>
-            </div>
-            <div class="sub-button shadow">
-              <a href="#" target="_blank">
-                <span class="material-icons">help_outline</span>
-              </a>
-            </div>
-          </div>
-          -->
       </div>
   </div>  
 </template>
@@ -316,6 +370,7 @@ import image from "@/assets/images/avatar.webp";
         CivilStatus: '',
         Education: [],
         DriverLicence: [],
+        Work: [],
         BirthDate: null,
       }
     },
@@ -350,6 +405,17 @@ import image from "@/assets/images/avatar.webp";
       photoLoad(event) {
         const file = event.target.files[0]
         this.PhotoSrc = URL.createObjectURL(file)
+      },
+      printResume() {
+        let element = document.getElementById('print-me');
+        let clone = element.cloneNode(true)
+        clone.setAttribute('style', 'zoom: 99%')
+        let options = {
+            margin: 0,
+            html2canvas: {scale: 2},
+            jsPDF: { unit: 'cm', format: 'a4', orientation: 'portrait' }
+        }
+        html2pdf().set(options).from(clone).save();
       }
     }
   }
